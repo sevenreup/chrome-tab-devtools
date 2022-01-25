@@ -1,0 +1,10 @@
+{
+    "manifest_version": 2,
+    "name": "Dev Reel",
+    "version": "1.0.0",
+    "description": "Dev staff.",
+    "author": "CHristopher Phir",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
+}
