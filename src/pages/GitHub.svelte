@@ -4,8 +4,9 @@
   import type { Repository } from "../models/repository";
   import type { AxiosError } from "axios";
   import { isArray } from "../util/types";
-  let selectedLanguage: string | null = null;
-  let selectedPeriod: string | null = null;
+  import RepositoryCard from "../components/RepositoryCard.svelte";
+  let selectedLanguage: string | null = 'all';
+  let selectedPeriod: string | null = 'daily';
 
   const languageQuery = useGetLanguages();
   const trendingQuery = useQuery<Repository[], AxiosError>(
@@ -28,6 +29,7 @@
 <main>
   {#if $languageQuery.status === "success"}
     <select bind:value={selectedLanguage}>
+      <option value="all">All Languages</option>
       {#each $languageQuery.data as { name, urlParam }}
         <option value={urlParam}>{name}</option>
       {/each}
@@ -40,9 +42,15 @@
   </select>
   {#if $languageQuery.status === "success"}
     {#if isArray($trendingQuery.data)}
-      {#each $trendingQuery.data as repo}
-        <h3>{repo.author}</h3>
-      {/each}
+      <div class="mx-auto container py-20 px-6">
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          {#each $trendingQuery.data as repo}
+            <RepositoryCard {repo} />
+          {/each}
+        </div>
+      </div>
     {/if}
   {/if}
 </main>
