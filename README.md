@@ -10,3 +10,4 @@ https://api.github.com/search/repositories?q=fork:false+stars:%3E%3D20+created:%
 https://www.reddit.com/r/JavaScript.json?sort=popular
 
 https://github.com/kamranahmedse/githunt
+https://github.com/Hyraze/gitrepos
