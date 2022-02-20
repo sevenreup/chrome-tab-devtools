@@ -32,7 +32,7 @@
 </script>
 
 <nav
-  class="sidebar fixed top-0 left-0 h-full z-50 w-[250px]"
+  class="sidebar fixed top-0 left-0 h-full z-50 w-[250px] bg-slate-100"
   class:close={sidebarOpen}
 >
   <header class="flex justify-start pl-8 mt-2">
@@ -45,7 +45,7 @@
     </span>
   </header>
 
-  <div class="menu-bar">
+  <div class="menu-bar flex justify-between overflow-y-scroll flex-col">
     <div class="menu">
       <ul class="menu-links">
         {#each links as nav}
@@ -63,13 +63,15 @@
 </nav>
 
 <style lang="scss">
-  .menu-bar::-webkit-scrollbar {
-    display: none;
+  .menu-bar {
+    height: calc(100% - 55px);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   .sidebar {
     padding: 10px 14px;
-    background: var(--sidebar-color);
-    transition: var(--tran-05);
     &.close {
       width: 88px;
 
@@ -77,27 +79,5 @@
         opacity: 0;
       }
     }
-  }
-  .sidebar.close .toggle {
-    transform: translateY(-50%) rotate(0deg);
-  }
-
-  .sidebar .menu {
-    margin-top: 40px;
-  }
-  .toggle {
-    position: absolute;
-    top: 40%;
-    right: -25px;
-    transform: translateY(-5%) rotate(180deg);
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    cursor: pointer;
-    transition: var(--tran-05);
   }
 </style>
