@@ -6,5 +6,5 @@
 - json2ts
 - json2Pojo/Kotlin data class
 # TODO
-[] Improve redme
-[] UI fixes
+- [ ] Improve redme
+- [ ] UI fixes
