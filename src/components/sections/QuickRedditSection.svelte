@@ -31,5 +31,7 @@
         <span>Score: {data.score}</span>
       </div>
     {/each}
+  {:else}
+    <h3>Loading</h3>
   {/if}
 </main>

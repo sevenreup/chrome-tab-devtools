@@ -62,32 +62,34 @@
   }
 </script>
 
-<main>
-  {#if $languageQuery.status === "success"}
-    <select bind:value={selectedLanguage}>
-      <option value="all">All Languages</option>
-      {#each $languageQuery.data as { name, urlParam }}
-        <option value={urlParam}>{name}</option>
-      {/each}
-    </select>
-  {/if}
-  <select bind:value={selectedPeriod}>
-    <option value="day">Daily</option>
-    <option value="week">Weekly</option>
-    <option value="month">Monthly</option>
-    <option value="year">Yearly</option>
-  </select>
-  {#if $languageQuery.status === "success"}
-    {#if isArray($trendingQuery.data?.items)}
-      <div class="mx-auto container py-20 px-6">
-        <div
-          class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          {#each $trendingQuery.data?.items as repo}
-            <RepositoryCard {repo} />
-          {/each}
-        </div>
-      </div>
+<div class="container mx-auto py-10 md:w-4/5 w-11/12 px-6">
+  <main>
+    {#if $languageQuery.status === "success"}
+      <select bind:value={selectedLanguage}>
+        <option value="all">All Languages</option>
+        {#each $languageQuery.data as { name, urlParam }}
+          <option value={urlParam}>{name}</option>
+        {/each}
+      </select>
     {/if}
-  {/if}
-</main>
+    <select bind:value={selectedPeriod}>
+      <option value="day">Daily</option>
+      <option value="week">Weekly</option>
+      <option value="month">Monthly</option>
+      <option value="year">Yearly</option>
+    </select>
+    {#if $languageQuery.status === "success"}
+      {#if isArray($trendingQuery.data?.items)}
+        <div class="mx-auto container py-20 px-6">
+          <div
+            class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
+            {#each $trendingQuery.data?.items as repo}
+              <RepositoryCard {repo} />
+            {/each}
+          </div>
+        </div>
+      {/if}
+    {/if}
+  </main>
+</div>
