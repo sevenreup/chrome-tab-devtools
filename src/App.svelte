@@ -26,9 +26,8 @@
       <!-- Sidebar ends -->
       <!-- Remove class [ h-64 ] when adding a card block -->
       <div class={!sideNavOpen ? "ml-[250px]" : "ml-[88px]"}>
-        
-          <Route path="/" component={Home} />
-          <Route path="/github" component={GitHub} />
+        <Route path="/" component={Home} />
+        <Route path="/github" component={GitHub} />
       </div>
     </main></QueryClientProvider
   >
